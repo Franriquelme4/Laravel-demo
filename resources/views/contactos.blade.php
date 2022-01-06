@@ -13,6 +13,8 @@
     {{-- @endforeach --}}
       
   {{-- @endif --}}
+ @include('partials.session-status')
+  
   <form action="{{route('contact')}}" method="POST">
     @csrf
     <label for="input1">Name</label><br>
@@ -41,6 +43,7 @@
 
 <button>Enviar </button>
 </form>
+
 </div>
 
   
