@@ -7,7 +7,7 @@
 
 <div class="container">
    <div class="d-flex justify-content-between align-items-center">
-    <h1 class="display-6 mb-0">@lang('Projects')</h1> 
+    <h1 class="display-6 mb-0">@lang('Projects') | Vista Lista</h1> 
     {{-- Union de if y forech --}}
     
     @auth
@@ -37,6 +37,33 @@
     @endforelse
     {{$projects->links()}}
 </ul>
+<hr>
+<h1 class="display-6 mb-0">@lang('Projects') | Vista Tabla</h1> 
+<hr>
+<table class="table">
+    <thead class="table-primary">
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Titulo</th>
+        <th scope="col">URL</th>
+        <th scope="col">Descripcion</th>
+        <th scope="col">Tiempo de Creacion</th>
+      </tr>
+    </thead>
+    <tbody>
+        @foreach ( $projects as $item )
+        <tr>
+            <th scope="row">{{$item->id}}</th>
+            <td>{{$item->title}}</td>
+            <td>{{$item->url}}</td>
+            <td>{{$item->description}}</td>
+            <td> {{$item->created_at->diffForHumans()}}</td>
+          </tr>
+        @endforeach
+     
+    </tbody>
+  </table>
+  
 
 </div>
 @endsection
