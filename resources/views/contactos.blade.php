@@ -4,9 +4,9 @@
 @section('title','Contactos')
 
 @section('content')
-  <h1>{{ __('Contact')}}</h1> 
+ 
 
-<div class="container">
+
   {{-- @if ($errors->any()) --}}
     {{-- @foreach ($errors->all() as $error) --}}
         {{-- <p>{{$error}}</p> --}}
@@ -14,37 +14,78 @@
       
   {{-- @endif --}}
  @include('partials.session-status')
-  
-  <form action="{{route('contact')}}" method="POST">
+ 
+ <div class="container">
+
+<div class="row">
+  <div class="col-12 col-sm-10 col-lg-6 mx-auto ">
+
+ <form action="{{route('contact')}}" method="POST" class="bg-white shadow rounded py-3 px-4">
     @csrf
-    <label for="input1">Name</label><br>
-    <input id="input1" type="text" name="name" value="{{ old('name')}}"><br>
-    {!! $errors->first('name','<small>:message</small><br>') !!}
-    
-    <label for="input2">Lastname</label><br>
-    <input id="input2" type="text" name="lastname" value="{{ old('lastname')}}"><br>
-    {!! $errors->first('lastname','<small>:message</small><br>') !!}
-   
-    <label for="input4">Email</label><br>
-    <input id="input4" type="text" name="email" value="{{ old('email')}}"><br>
-    {!! $errors->first('email','<small>:message</small><br>') !!}
+    <h1 class="display-6">@lang('Contact')</h1>
+    <hr>
+    <div class="form-group">
+      <label for="name">Nombre</label><br>
+      <input class="form-control bg-light shadow-sm @error('name') is-invalid @else border-0 @enderror" id="name" type="text" name="name" value="{{ old('name')}}" placeholder="Nombre..">
+      @error('name')
+          <span class="invalid-feedback" role="alert">
+            <strong>{{$message}}</strong>
+          </span>
+      @enderror
 
+    </div>
 
-    <label for="input3">Subject</label><br>
-    <input id="input3" type="text" name="subject" value="{{ old('subject')}}"><br>
-    {!! $errors->first('subject','<small>:message</small><br>') !!}
+    <div class="form-group">
+      <label for="lastname">Apellido</label><br>
+      <input class="form-control bg-light shadow-sm @error('lastname') is-invalid @else border-0 @enderror" id="lastname" type="text" name="lastname" value="{{ old('lastname')}}" placeholder="Apellido..">
+      @error('lastname')
+          <span class="invalid-feedback" role="alert">
+            <strong>{{$message}}</strong>
+          </span>
+      @enderror
 
+    </div>
 
+    <div class="form-group">
+      <label for="email">Email</label><br>
+      <input class="form-control bg-light shadow-sm @error('email') is-invalid @else border-0 @enderror" id="email" type="text" name="email" value="{{ old('email')}}" placeholder="Email..">
+      @error('email')
+          <span class="invalid-feedback" role="alert">
+            <strong>{{$message}}</strong>
+          </span>
+      @enderror
 
-    <label for="input4">Description</label><br>
-    <textarea name="description" id="input4" cols="30" rows="10"></textarea><br>
-    {!! $errors->first('description','<small>:message</small><br>') !!}
+    </div>
 
+    <div class="form-group">
+      <label for="subject">Asunto</label><br>
+      <input class="form-control bg-light shadow-sm @error('subject') is-invalid @else border-0 @enderror" id="subject" type="text" name="subject" value="{{ old('subject')}}" placeholder="Asunto..">
+      @error('subject')
+          <span class="invalid-feedback" role="alert">
+            <strong>{{$message}}</strong>
+          </span>
+      @enderror
 
-<button>Enviar </button>
+    </div>
+    <div class="form-group">
+      <label for="description">Descripción</label><br>
+      <textarea class="form-control bg-light shadow-sm @error('description') is-invalid @else border-0 @enderror" name="description" id="input4" cols="5" rows="3">{{ old('description')}}</textarea>
+      @error('description')
+          <span class="invalid-feedback" role="alert">
+            <strong>{{$message}}</strong>
+          </span>
+      @enderror
+
+    </div>
+  <button class="btn btn-primary btn-lg btn-block mt-2">Enviar</button>
+    </div>
 </form>
 
 </div>
+</div>
+
+
+
 
   
 @endsection
