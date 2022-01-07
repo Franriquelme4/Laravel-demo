@@ -17,7 +17,8 @@ Route::get('/portfolio/{project}', 'ProjectController@show')->name('project.show
 
 Route::get('/portfolio/{projects}/editar', 'ProjectController@edit')->name('project.edit');
 //Route::resource('project', 'ProjectController');
-Route::post('/contact', 'MessajeController@store');
+Route::post('/contact', 'MessajeController@store')->name('sendmessage');
+Route::view('/register', 'auth.register')->name('register');
 //Route::resource('/proyectos', 'PortfolioController');
 //Route::resource('Portafolio',Projectcontroller)->name('projects')->parameters(['portsfolio'=>''projects])
 //only muestra todos los metodos seleccionados ß
