@@ -24,10 +24,15 @@ class ProductController extends Controller
         $product=Product::latest()->paginate();
         return view('products.index',compact('product'));
     }
+    public function show(Product $product)
+    {
+        return view('products.show',['product'=> $product]);
+
+    }
     public function create()
     {
         return view('products.create',[
-            'product' => new Product()
+            'product' => new Product
         ]);
     }
     public function store(CreateProductRequest $request)
@@ -37,11 +42,7 @@ class ProductController extends Controller
         Product::create($request->validated());
      return redirect()->route('products.index')->with('status','Producto agregado correctamente');
     }
-    public function show(Product $product)
-    {
-        return view('products.show',['product'=> $product]);
-
-    }
+   
     public function edit(Product $product)
     {
         return view('products.edit',['product' => $product]);
