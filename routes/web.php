@@ -3,6 +3,7 @@
 // metodos de impresion de vistas 
 
 use App\Http\Controllers\ProjectController;
+use App\Models\Product;
 
 Route::view('/', 'home',['nombre'=>"francisco"])->name('home');
 Route::view('/contact', 'contactos')->name('contact');
@@ -16,7 +17,8 @@ Route::delete('/portfolio/{project}','ProjectController@destroy')->name('project
 Route::get('/portfolio/{project}', 'ProjectController@show')->name('project.show');
 
 Route::get('/portfolio/{projects}/editar', 'ProjectController@edit')->name('project.edit');
-//Route::resource('project', 'ProjectController');
+Route::resource('/products', 'ProductController');
+
 Route::post('/contact', 'MessajeController@store')->name('sendmessage');
 Route::view('/register', 'auth.register')->name('register');
 //Route::resource('/proyectos', 'PortfolioController');

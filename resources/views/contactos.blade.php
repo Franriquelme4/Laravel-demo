@@ -20,7 +20,7 @@
 <div class="row">
   <div class="col-12 col-sm-10 col-lg-6 mx-auto ">
 
- <form action="{{route('contact')}}" method="POST" class="bg-white shadow rounded py-3 px-4">
+ <form action="{{route('sendmessage')}}" method="POST" class="bg-white shadow rounded py-3 px-4">
     @csrf
     <h1 class="display-6">@lang('Contact')</h1>
     <hr>

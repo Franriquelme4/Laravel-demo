@@ -14,6 +14,9 @@
                 <li class="nav-item ">
                     <a class="nav-link {{ setActive('home')}}" href="{{ route('home')}}">Home</a>
                 </li>
+                <li class="nav-item ">
+                    <a class="nav-link {{ setActive('products.*')}}" href="{{ route('products.index')}}">Products</a>
+                </li>
                 <li class="nav-item "><a class="nav-link {{  setActive('project.*')}}" href="{{ route('project.index')}}">Portafolio</a></li>
                 <li class="nav-item "><a class="nav-link {{  setActive('about')}}" href="{{ route('about')}}">About</a></li>
                 <li class="nav-item "><a class="nav-link {{  setActive('contact')}}" href="{{ route('contact')}}">Contactos</a></li>
